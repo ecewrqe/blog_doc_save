@@ -1,34 +1,34 @@
-# Sql练习
-## 准备
+# sql training
+## 初めに
 Create DDL
 ```
 create table Student(
-	SId int not null auto-increment comment="学生编号",
-	Sname varchar(16) not null comment="学生姓名",
-	Sage date comment="出生年月",
-	Ssex char(2) comment="学生性别"
+	SId int not null auto-increment comment="学生番号",
+	Sname varchar(16) not null comment="学生名前",
+	Sage date comment="生年月日",
+	Ssex char(2) comment="ジェンダー"
 	constraint PK_SId primary key (`SId`),
 	constraint `Ssex_chk` check `Ssex` in ("男", "女")
 );
  
 create table Course(
-	CId int not null auto-increment comment="课程编号",
-	Cname varchar(16) not null comment="课程名称",
-	TId int comment="教师编号",
+	CId int not null auto-increment comment="課程番号",
+	Cname varchar(16) not null comment="課程",
+	TId int comment="教師名前",
 	constraint PK_CId primary key (`CId`),
 	constraint FK_Teacher foreign key (`TId`) references Teacher(`TId`)
 );
  
 create table Teacher(
-	TId int not null auto-increment comment="教师编号",
-	Tname varchar(16) not null comment="教师姓名"
+	TId int not null auto-increment comment="教師番号",
+	Tname varchar(16) not null comment="教師名前"
 );
  
 create table SC(
-	SId int not null comment="学生编号",
-	CId int not null comment="课程编号",
+	SId int not null comment="学生番号",
+	CId int not null comment="課程番号",
 	score
-	int comment="{分数"
+	int comment="点数"
 	constraint `S_C_ID` primary key (`SId`, `CId`)
 );
 ```
